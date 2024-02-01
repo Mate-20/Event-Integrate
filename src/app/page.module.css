@@ -1,11 +1,18 @@
 .container{
+    height: 100vh;
     padding: 50px;
     background-color:rgb(14, 14, 14) ;
 }
+.scrollableContainer {
+    margin-top: 20px;
+    border: 3px solid rgb(96, 63, 240);
+
+    max-height: 700px; /* Set your desired height */
+    overflow-y:scroll;
+    border-radius: 10px;
+  }
 .blur{
     filter: blur(3px);
-    height: 100vh;
-    overflow: hidden;
 }
 .heading{
     font-size: 35px;
