@@ -1,0 +1,28 @@
+.container{
+    padding: 50px;
+    background-color:rgb(14, 14, 14) ;
+}
+.blur{
+    filter: blur(3px);
+    height: 100vh;
+    overflow: hidden;
+}
+.heading{
+    font-size: 35px;
+    color: white;
+    font-weight: 900;
+    
+  }
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
+    justify-items: center;
+}
+.modal{
+    position: absolute;
+    top: 20vh;
+    left: 35vw;
+}
+
+  
+  
