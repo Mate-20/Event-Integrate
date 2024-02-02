@@ -3,6 +3,9 @@ import { useState } from "react"
 import Cards from "./components/Cards"
 import Modal from "./components/Modal"
 import styles from './page.module.css'
+import MultipleData from "./components/MultipleData"
+import SingleData from "./components/SingleData"
+import TwoData from "./components/TwoData"
 
 const Home = () => {
   const [IsModalOpen, SetIsModalOpen] = useState(false)
@@ -21,7 +24,8 @@ const Home = () => {
   { image: "/marathon.png", eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" },
   { image: "/marathon.png", eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" },
   { image: "/marathon.png", eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" },
-  { image: "/marathon.png", eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" }]
+  { image: "/marathon.png", eventName: "Marathon", date: "February 3 - 7, 2024", location: "Berlin, Germany" }
+]
 
 
   const handleModal = (IsOpen: boolean) => {
@@ -29,22 +33,14 @@ const Home = () => {
   }
   return (
     <div>
-      <div className={`${styles.container} ${IsModalOpen ? styles.blur : ""}`}>
-        <div className={styles.heading}>Your Events</div>
-        <div className={styles.scrollableContainer}>
-          <div className={styles.cardContainer}>
-            {cardData.map((item, key) => (
-              <Cards key={key} image={item.image} date={item.date} eventName={item.eventName} location={item.location} handleModal={handleModal}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-      {IsModalOpen && (<div className={styles.modal}>
-        <Modal handleModal={handleModal} />
-      </div>)}
+      {cardData.length === 1 
+        ? <SingleData cardData={cardData} /> 
+        : cardData.length === 2
+          ? <TwoData cardData={cardData} />
+          : <MultipleData cardData={cardData}/>
+      }
     </div>
-  )
+  );
 }
 
 export default Home

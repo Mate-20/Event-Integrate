@@ -1,7 +1,14 @@
+.backBtn{
+    background-color: rgb(216, 216, 216);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 40%;
+    cursor: pointer;
+}
 .container{
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    margin-top: 40px;
 
 }
 .content{
@@ -26,10 +33,6 @@
 }
 .desc{
     margin-top: 10px;
-}
-.img{
-    width: 30vw;
-    margin-left: 20px;
 }
 .formHeading{
     margin-top: 50px;

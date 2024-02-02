@@ -3,7 +3,6 @@ import styles from './cards.style.module.css'
 import Image from 'next/image'
 import { IoLocationOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
-import Link from 'next/link';
 
 interface CardTypes{
     image : string

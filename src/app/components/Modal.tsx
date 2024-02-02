@@ -1,30 +1,47 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Calendar, CalendarCell, CalendarGrid, Heading } from 'react-aria-components';
 import styles from './modal.style.module.css'
 import Link from 'next/link';
+import { BiWorld } from "react-icons/bi";
+import RegisterForm from './RegisterForm';
 
-interface ModalProps{
-    handleModal : (isOpen : boolean)=> void
+interface ModalProps {
+    handleModal: (isOpen: boolean) => void,
+    dataNumber : number
 }
 
-const Modal = (props : ModalProps) => {
+const Modal = (props: ModalProps) => {
 
-    const timeData :string[] = ["10:00 am","11:00 am","2:00 pm"]
+    const timeData: string[] = ["10:00 am", "11:00 am", "2:00 pm"]
 
     const [IsTimeSelected, SetIsTimeSelected] = useState<string | null>(null)
+    const [Time, SetTime] = useState<string>("")
+    const [IsFormOpen, SetIsFormOpen] = useState<Boolean>(false);
 
-    const handleTime = (time : string)=>{
+    useEffect(()=>{
+        const date = new Date()
+        const time = date.toLocaleTimeString();
+        SetTime(time)
+    })
+
+    const handleTime = (time: string) => {
         SetIsTimeSelected(time)
     }
 
-    const handleModal = ()=>{
+    // For closing the Calendar modal
+    const handleModal = () => {
         props.handleModal(false)
+    }
+
+    // For opening and closing the Form Modal
+    const handleFormModal = (value : Boolean)=>{
+        SetIsFormOpen(value)
     }
 
     return (
         <div>
-            <div className={styles.container}>
+            {!IsFormOpen && (<div className={styles.container}>
                 <div className={styles.calendar}>
                     <Calendar aria-label="Appointment date" className={styles.ariaCalendar}>
                         <header>
@@ -36,21 +53,32 @@ const Modal = (props : ModalProps) => {
                             {(date) => <CalendarCell date={date} className={styles.ariaCell} />}
                         </CalendarGrid>
                     </Calendar>
+                    <div className={styles.timeZone}>
+                        <div style={{fontWeight:600}}>Time Zone</div>
+                        <div className={styles.ist}>
+                            <div style={{marginTop:2, marginRight:5}}><BiWorld /></div>
+                            <div>{`Indian Standard Time (${Time})`} </div>
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.timeSlots}>
                     <h1>Time Slots</h1>
-                    {timeData.map((item,key)=>(
-                        <div key={key} 
-                        className={`${styles.time} ${IsTimeSelected === item ? styles.selectedTime : ''}`}
-                        onClick={()=>handleTime(item)}
+                    {timeData.map((item, key) => (
+                        <div key={key}
+                            className={`${styles.time} ${IsTimeSelected === item ? styles.selectedTime : ''}`}
+                            onClick={() => handleTime(item)}
                         >{item}</div>
                     ))}
                     <div className={styles.btns}>
-                        <Link className={styles.nextBtn} href={`/register/${1}`}>Next</Link>
-                        <button className={styles.cancelBtn} onClick={handleModal}>Cancel</button>
+                        <button className={styles.nextBtn} onClick={()=>handleFormModal(true)}>Next</button>
+                        <button className={styles.cancelBtn} onClick={handleModal}>x</button>
                     </div>
                 </div>
-            </div>
+            </div>)}
+            {IsFormOpen && (<div className={styles.container}>
+                {/* Sending the form modal function so that it can be closed */}
+                <RegisterForm handleFormModal = {handleFormModal} dataNumber={props.dataNumber}/>
+            </div>)}
         </div>
     )
 }

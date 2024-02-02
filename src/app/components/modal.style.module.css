@@ -1,12 +1,15 @@
 .container {
     display: flex;
     justify-content: center;
+    background-color: rgb(238, 238, 238);
+    padding: 50px;
+    border-radius: 10px;
 }
 
 .ariaCalendar {
-    width: fit-content;
     max-width: 100%;
     color: black;
+    height: 300px;
 }
 
 .ariaCalendar header {
@@ -29,7 +32,7 @@
 }
 
 .ariaCalendar .ariaCell {
-    width: 2rem;
+    width: 3rem;
     line-height: 2rem;
     text-align: center;
     border-radius: 6px;
@@ -56,12 +59,6 @@
     background: rgb(96, 63, 240);
     color: white
 }
-.container{
-    background-color: rgb(238, 238, 238);
-    padding: 50px;
-    border-radius: 10px;
-    
-}
 .timeSlots{
     margin-left: 30px;
 }
@@ -71,10 +68,10 @@
     font-weight: 700;
 }
 .timeSlots .time{
-    font-size: 20px;
-    border: 2px solid rgb(96, 63, 240);
+    font-size: 15px;
+    border: 1px solid rgb(96, 63, 240);
     border-radius: 5px;
-    padding: 5px 30px;
+    padding: 10px 60px;
     margin: 10px;
     cursor: pointer;
 }
@@ -95,11 +92,13 @@
     border-radius: 5px;
     margin-top: 30px;
     margin-left: 10px;
+    border: none;
+    cursor: pointer;
     
 }
 .timeSlots .cancelBtn{
-    background-color: ransparent;
-    border: 1px solid rgb(255, 80, 80);
+    background-color: transparent;
+    border: 1px solid silver;
     width: fit-content;
     padding: 5px 10px;
     font-size: 20px;
@@ -107,4 +106,9 @@
     margin-top: 30px;
     margin-left: 10px;
     cursor: pointer;
+    color: grey;
+}
+.ist{
+    display: flex;
+    margin-top: 10px;
 }

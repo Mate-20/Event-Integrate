@@ -1,15 +1,7 @@
 .container{
-    /* height: 100vh; */
     padding: 50px;
     background-color:rgb(14, 14, 14) ;
 }
-/* .scrollableContainer {
-    margin-top: 20px;
-    border: 3px solid rgb(96, 63, 240);
-    max-height: 700px; 
-    overflow-y:scroll;
-    border-radius: 10px;
-  } */
 .blur{
     height: 100vh;
     overflow: hidden;
@@ -22,9 +14,11 @@
     
   }
 .cardContainer {
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
     justify-items: center;
+    row-gap: 30px;
 }
 .modal{
     position: absolute;
