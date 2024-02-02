@@ -36,7 +36,7 @@ const MultipleData = ({ cardData }: MultipleDataProps) => {
                 </div>
             </div>
             {IsModalOpen && (<div className={styles.modal}>
-                {/* We want to show the image if multiple data is there, so we are passing true for image */}
+                {/* We dont want to show the all the things in form if multiple data is there, so we are passing date as 3*/}
                 <Modal handleModal={handleModal} dataNumber={3} />
             </div>)}
         </div>

@@ -30,7 +30,7 @@ const SingleData = ({ cardData }: SingleDataProps) => {
         <div>
             <div className={`${styles.container}`}>
                 {cardData.map((item, key) => (
-                    <div className={styles.eventContainer}>
+                    <div key={key} className={styles.eventContainer}>
                         <div className={styles.eventDetails}>
                             <div className={styles.date}>{item.date}</div>
                             <div className={styles.name}>{item.eventName}</div>
@@ -51,13 +51,12 @@ const SingleData = ({ cardData }: SingleDataProps) => {
                         </div>
                     </div>
                 ))}
-
                 <div className={styles.modal}>
-                    {/* We dont want to show the image if only single data is there, so we are passing false for image */}
+                    <div className={styles.schedule}>Schedule</div>
+                    {/* We dont want to show the some of the things in form if only single data is there, so we are passing date as 1*/}
                     <Modal handleModal={handleModal} dataNumber={1} />
                 </div>
             </div>
-
         </div>
     )
 }
