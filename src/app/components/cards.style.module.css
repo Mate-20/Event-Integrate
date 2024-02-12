@@ -4,6 +4,10 @@
     border-radius: 15px;
     cursor: pointer;
 }
+.card:hover{
+    transition-duration: .2s;
+    filter: drop-shadow(1px 1px 5px rgb(245, 245, 245));
+}
 .content{
     padding: 20px;
 }

@@ -25,7 +25,7 @@ const MultipleData = ({ cardData }: MultipleDataProps) => {
     }
 
     return (
-        <div>
+        <div className={styles.body}>
             <div className={`${styles.container} ${IsModalOpen ? styles.blur : ""}`}>
                 <div className={styles.heading}>Your Events</div>
                 <div className={styles.cardContainer}>

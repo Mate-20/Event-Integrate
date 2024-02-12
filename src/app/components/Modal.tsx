@@ -23,7 +23,7 @@ const Modal = (props: ModalProps) => {
         const date = new Date()
         const time = date.toLocaleTimeString();
         SetTime(time)
-    })
+    },[])
 
     const handleTime = (time: string) => {
         SetIsTimeSelected(time)
